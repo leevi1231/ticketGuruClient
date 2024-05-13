@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://leevi1231.github.io/Ohjelmistoprojekti1/",
+  "homepage": "https://leevi1231.github.io/ticketGuruClient/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
