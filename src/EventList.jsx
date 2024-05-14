@@ -88,7 +88,7 @@ const EventList = () => {
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>#</th>
                         <th>Event Name</th>
                         <th>Address</th>
                         <th>Showtime</th>
@@ -99,16 +99,16 @@ const EventList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {eventsWithTicketTypes.map(event => (
+                    {eventsWithTicketTypes.map((event, index) => (
                         <tr key={event.id}>
-                            <td>{event.id}</td>
+                            <td>{index + 1}</td>
                             <td>{event.eventname}</td>
                             <td>{event.address}</td>
                             <td>{new Date(event.showtime).toLocaleString()}</td>
                             <td>{event.description}</td>
                             <td>{event.maxtickets}</td>
                             <td>{event.duration} min</td>
-                            <td>                                
+                            <td>
                                 <button onClick={() => handleEditEvent(event.id)}>Edit</button>
                                 <button onClick={() => handleDeleteEvent(event.id)}>Delete</button>
                                 <button onClick={() => navigate(`/tickettypes/${event.id}`)}>Ticket Types</button>
@@ -118,6 +118,7 @@ const EventList = () => {
                     ))}
                 </tbody>
             </table>
+
             <button className="addbutton" onClick={() => navigate('/newevent')}>Add new event</button>{' '}
         </div>
     );
