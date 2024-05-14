@@ -17,12 +17,12 @@ const EventList = () => {
     useEffect(() => {
         const fetchData = () => {
             Promise.all([
-                fetch('http://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/events', {
+                fetch('https://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/events', {
                     headers: {
                         Authorization: `Basic ${basicAuth}`
                     }
                 }),
-                fetch('http://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/tickettypes', {
+                fetch('https://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/tickettypes', {
                     headers: {
                         Authorization: `Basic ${basicAuth}`
                     }
@@ -52,7 +52,7 @@ const EventList = () => {
     }, []);
 
     const handleDeleteEvent = (eventId) => {
-        axios.delete(`http://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/event/${eventId}`, {
+        axios.delete(`https://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/event/${eventId}`, {
             headers: {
                 Authorization: `Basic ${basicAuth}`
             }

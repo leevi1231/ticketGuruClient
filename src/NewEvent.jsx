@@ -20,7 +20,7 @@ export default function NewEvent() {
 
     try {
       await axios.post(
-        'http://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/events',
+        'https://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/events',
         {
           eventname,
           address,

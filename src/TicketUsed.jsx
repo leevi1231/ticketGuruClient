@@ -18,7 +18,7 @@ function TicketUsed() {
     };
 
     const handleSubmit = () => {
-        fetch(`http://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/tickets`, {
+        fetch(`https://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/tickets`, {
             headers: {
                 Authorization: `Basic ${basicAuth}`
             }
@@ -44,7 +44,7 @@ function TicketUsed() {
     };
 
     const markAsUsed = () => {
-        fetch(`http://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/tickets/${ticketInfo.id}`, {
+        fetch(`https://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/tickets/${ticketInfo.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

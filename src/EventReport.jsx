@@ -15,7 +15,7 @@ const EventReport = () => {
     useEffect(() => {
         const fetchEventDetails = async () => {
             try {
-                const response = await axios.get(`http://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/event/${id}`, {
+                const response = await axios.get(`https://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/event/${id}`, {
                     headers: {
                         Authorization: `Basic ${basicAuth}`
                     }
@@ -32,7 +32,7 @@ const EventReport = () => {
     useEffect(() => {
         const fetchTicketSales = async () => {
             try {
-                const response = await axios.get(`http://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/tickets`, {
+                const response = await axios.get(`https://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/tickets`, {
                     headers: {
                         Authorization: `Basic ${basicAuth}`
                     }

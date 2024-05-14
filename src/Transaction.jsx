@@ -64,14 +64,14 @@ const TransactionPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const transactionResponse = await axios.get(`http://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/transactions/${id}`, {
+                const transactionResponse = await axios.get(`https://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/transactions/${id}`, {
                     headers: {
                         Authorization: `Basic ${basicAuth}`
                     }
                 });
                 setTransaction(transactionResponse.data);
 
-                const ticketsResponse = await axios.get('http://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/tickets', {
+                const ticketsResponse = await axios.get('https://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/tickets', {
                     headers: {
                         Authorization: `Basic ${basicAuth}`
                     }

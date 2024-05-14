@@ -16,7 +16,7 @@ const TicketTypesForEvent = () => {
     useEffect(() => {
         const fetchTicketTypes = async () => {
             try {
-                const response = await axios.get(`http://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/tickettypes`, {
+                const response = await axios.get(`https://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/tickettypes`, {
                     headers: {
                         Authorization: `Basic ${basicAuth}`
                     }
@@ -35,7 +35,7 @@ const TicketTypesForEvent = () => {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`http://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/tickettypes`, {
+            const response = await axios.post(`https://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/tickettypes`, {
                 ...newTicketType,
                 event: {
                     id: parseInt(id)
