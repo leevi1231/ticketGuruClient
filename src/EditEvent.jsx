@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const EditEvent = () => {
     const { id } = useParams();
     const [event, setEvent] = useState({});
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+
+    const navigate = useNavigate();
 
     const username = localStorage.getItem('username') || '';
     const password = localStorage.getItem('password') || '';
@@ -39,7 +41,7 @@ const EditEvent = () => {
                     Authorization: `Basic ${basicAuth}`
                 }
             });
-            window.location.href = '/events';
+            navigate('/events');
         } catch (error) {
             setError(error.message);
         }
