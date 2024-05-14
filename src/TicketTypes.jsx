@@ -54,7 +54,7 @@ const TicketTypesForEvent = () => {
 
     const handleDelete = async (ticketTypeId) => {
         try {
-            await axios.delete(`http://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/tickettype/${ticketTypeId}`, {
+            await axios.delete(`https://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/tickettype/${ticketTypeId}`, {
                 headers: {
                     Authorization: `Basic ${basicAuth}`
                 }
