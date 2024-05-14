@@ -92,7 +92,7 @@ const SellTickets = () => {
 
     const handleConfirmTransaction = async () => {
         try {
-            const transactionResponse = await axios.post('http://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/transactions', {
+            const transactionResponse = await axios.post('https://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/transactions', {
                 transactiondate: currentDate,
                 ticketsum: totalPrice
             }, {
@@ -106,7 +106,7 @@ const SellTickets = () => {
 
             for (const ticketTypeId of ticketTypeIds) {
                 await axios.post(
-                    'http://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/tickets',
+                    'https://ohjelmistoprojekti1-ticketguru-kovas.rahtiapp.fi/tickets',
                     {
                         transaction: { id: transactionId },
                         ticketType: { id: ticketTypeId }
