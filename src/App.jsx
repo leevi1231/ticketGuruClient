@@ -31,6 +31,10 @@ export default function App() {
     sessionStorage.removeItem('authenticated');
   };
 
+  const ProtectedRoute = ({ children }) => {
+    return authenticated ? children : <Navigate to="/" />;
+  };
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -41,20 +45,20 @@ export default function App() {
               <Link to="/selltickets">Sell Tickets</Link>{' '}
               <Link to="/ticketused">Check Ticket</Link>{' '}
               <Link to="/login" onClick={handleLogout}>Logout</Link>{' '}
-              <hr/>
+              <hr />
             </>
           )}
           <Routes>
-            {!authenticated && <Route path="/" element={<Navigate to="/login" />} />}
-            <Route path="/events" element={<EventList />} />
-            <Route path="/selltickets" element={<SellTickets />} />
-            <Route path="/ticketused" element={<TicketUsed />} />
-            <Route path="/newevent" element={<NewEvent />} />
-            <Route path="/tickettypes/:id" element={<TicketTypes />} />
-            <Route path="/editevent/:id" element={<EditEvent />} />
-            <Route path="/transaction/:id" element={<TransactionPage />} />
-            <Route path="/eventreport/:id" element={<EventReport />} />
             <Route path="/login" element={<Login onAuthentication={handleAuthentication} />} />
+            <Route path="/" element={<Navigate to={authenticated ? "/events" : "/login"} />} />
+            <Route path="/events" element={<ProtectedRoute><EventList /></ProtectedRoute>} />
+            <Route path="/selltickets" element={<ProtectedRoute><SellTickets /></ProtectedRoute>} />
+            <Route path="/ticketused" element={<ProtectedRoute><TicketUsed /></ProtectedRoute>} />
+            <Route path="/newevent" element={<ProtectedRoute><NewEvent /></ProtectedRoute>} />
+            <Route path="/tickettypes/:id" element={<ProtectedRoute><TicketTypes /></ProtectedRoute>} />
+            <Route path="/editevent/:id" element={<ProtectedRoute><EditEvent /></ProtectedRoute>} />
+            <Route path="/transaction/:id" element={<ProtectedRoute><TransactionPage /></ProtectedRoute>} />
+            <Route path="/eventreport/:id" element={<ProtectedRoute><EventReport /></ProtectedRoute>} />
           </Routes>
         </div>
       </BrowserRouter>

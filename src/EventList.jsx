@@ -1,8 +1,6 @@
-// EventList.jsx
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import EventReport from './EventReport'; // Import the new component
 
 const EventList = () => {
     const [eventsWithTicketTypes, setEventsWithTicketTypes] = useState([]);
@@ -12,7 +10,7 @@ const EventList = () => {
     const username = localStorage.getItem('username') || '';
     const password = localStorage.getItem('password') || '';
     const basicAuth = btoa(`${username}:${password}`);
-    const navigate = useNavigate(); // Get the navigate function
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = () => {
@@ -70,7 +68,7 @@ const EventList = () => {
     };
 
     const handleEventReport = (eventId) => {
-        navigate(`/eventreport/${eventId}`); // Navigate to the event report page
+        navigate(`/eventreport/${eventId}`);
     };
 
     if (isLoading) {
